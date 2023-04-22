@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import { useAuthContext } from "../Context/AuthContext";
 
@@ -9,13 +9,15 @@ export default function Login() {
   const [error, setError] = useState("");
   const [Loading, setIsLoading] = useState(false);
   const { logIn } = useAuthContext();
+  const navigate = useNavigate();
   async function handleLogin(e) {
     e.preventDefault();
     try {
       setIsLoading(true);
       await logIn(emailRef.current.value, pswdRef.current.value);
+      navigate("/");
     } catch {
-      setError("cannot log you in");
+      setError("cannot log you in at the moment.");
     }
     setIsLoading(false);
   }
@@ -35,7 +37,7 @@ export default function Login() {
               <Form.Control type="password" ref={pswdRef} required />
             </Form.Group>
 
-            <Button className="w-100  mt-4" type="submit">
+            <Button className="w-100  mt-4" type="submit" disabled={Loading}>
               Log In
             </Button>
           </Form>

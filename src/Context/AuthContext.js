@@ -20,7 +20,10 @@ export function AuthProvider({ children }) {
   function logIn(email, pswd) {
     return auth.signInWithEmailAndPassword(email, pswd);
   }
-  const contextValues = { currentUser, signUp, logIn };
+  function logOut() {
+    return auth.signOut();
+  }
+  const contextValues = { currentUser, signUp, logIn, logOut };
   return (
     <AuthContext.Provider value={contextValues}>
       {children}
