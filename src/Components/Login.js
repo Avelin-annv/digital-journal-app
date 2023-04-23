@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import { useAuthContext } from "../Context/AuthContext";
-import JournalHeader from "./JournalHeader";
 
 export default function Login() {
   const emailRef = useRef();
@@ -23,9 +22,8 @@ export default function Login() {
     setIsLoading(false);
   }
   return (
-    <div className="container" style={{ maxWidth: "500px", minWidth: "350px" }}>
-      <JournalHeader />
-      <h2 className="text-center mb-4 text-light">Log in</h2>
+    <>
+      <h2 className="text-center mb-4">Log in</h2>
       {error && error.length > 0 && <Alert variant="danger">{error}</Alert>}
       <Card>
         <Card.Body>
@@ -39,22 +37,16 @@ export default function Login() {
               <Form.Control type="password" ref={pswdRef} required />
             </Form.Group>
 
-            <Button
-              className="w-100  mt-4 bg-success"
-              type="submit"
-              disabled={Loading}
-            >
+            <Button className="w-100  mt-4" type="submit" disabled={Loading}>
               Log In
             </Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        <p className="text-light">Don't have an account yet , create one</p>
-        <Link class="text-light " to="/signup">
-          Sign Up
-        </Link>
+        <p>Don't have an account yet , create one</p>
+        <Link to="/signup">Sign Up</Link>
       </div>
-    </div>
+    </>
   );
 }
