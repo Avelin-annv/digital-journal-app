@@ -5,12 +5,18 @@ import SignUp from "./Components/Signup";
 import Login from "./Components/Login";
 import DashboardPage from "./Components/DashboardPage";
 import PrivateRoute from "./Components/PrivateRoute";
+import backgroundimg from "./Images/dashboard-background.png";
 
 function App() {
   return (
-    <Container style={{ maxWidth: "500px", minWidth: "350px" }}>
-      <div>
-        {" "}
+    <div
+      style={{
+        backgroundImage: `url(${backgroundimg})`,
+        height: "100vh",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="container-fluid">
         <BrowserRouter>
           <AuthProvider>
             <Routes>
@@ -29,7 +35,7 @@ function App() {
           </AuthProvider>
         </BrowserRouter>
       </div>
-    </Container>
+    </div>
   );
 }
 

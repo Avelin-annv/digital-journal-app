@@ -18,12 +18,18 @@ export default function DashboardPage() {
   return (
     <>
       {error && error.length > 0 && <Alert variant="danger">{error}</Alert>}
-      <h2 className="text-center mb-4">Welcome</h2>
+      <h2 className="text-center mb-4 text-light">Have a good day!!</h2>
       <Card>
         <Card.Body>
           <p>
-            <strong>Email:</strong> {currentUser.email}
+            <strong>Welcome</strong> {currentUser.email} !
           </p>
+          <div className="btn-group-vertical">
+            <Button className="m-2">Jot down ideas!</Button>
+            <Button className="m-2">Save your Contacts </Button>
+            <Button className="m-2">Check your todo list here</Button>
+            <Button className="m-2">Sticky notes</Button>
+          </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
