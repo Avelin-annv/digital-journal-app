@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import { useAuthContext } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
+import JournalHeader from "./JournalHeader";
 
 export default function SignUp() {
   const emailRef = useRef();
@@ -27,8 +28,9 @@ export default function SignUp() {
     setIsLoading(false);
   };
   return (
-    <>
-      <h2 className="text-center mb-4">Sign Up</h2>
+    <div className="container" style={{ maxWidth: "500px", minWidth: "350px" }}>
+      <JournalHeader />
+      <h2 className="text-center mb-4 text-light">Sign Up</h2>
       {error && error.length > 0 && <Alert variant="danger">{error}</Alert>}
       <Card>
         <Card.Body>
@@ -45,16 +47,22 @@ export default function SignUp() {
               <Form.Label>Confirm your password</Form.Label>
               <Form.Control type="password" ref={pswdConfRef} required />
             </Form.Group>
-            <Button className="w-100  mt-4" type="submit" disabled={Loading}>
+            <Button
+              className="w-100  mt-4 bg-success "
+              type="submit"
+              disabled={Loading}
+            >
               Sign up
             </Button>
           </Form>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        <p>Already have an account?</p>
-        <Link to="/login">Login</Link>
+      <div className="w-100 text-center mt-2 ">
+        <p className="text-light">Already have an account?</p>
+        <Link class="text-light " to="/login">
+          Login
+        </Link>
       </div>
-    </>
+    </div>
   );
 }
