@@ -5,7 +5,7 @@ import SignUp from "./Components/Signup";
 import Login from "./Components/Login";
 import DashboardPage from "./Components/DashboardPage";
 import PrivateRoute from "./Components/PrivateRoute";
-import backgroundimg from "./Images/dashboard-background.png";
+import backgroundimg from "./Images/backgroundimg.jpg";
 
 function App() {
   return (
